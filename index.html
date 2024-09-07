@@ -2,6 +2,9 @@
 <html lang="en">
     <link rel="stylesheet" href="css/portfolio.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <title>Ethan's Portfolio</title>
@@ -67,6 +70,18 @@
                     </div>
                 </div>
             </div>
+            <h1 class="centered-header" id="about-me">Contact Me</h1>
+            <section class="mail-me-form-container">
+                <form class="mail-me-form" onsubmit="return email_submit()">
+                    <fieldset>
+                        <input type="text" name="name" id="name" placeholder="name">
+                        <input type="text" name="Email" id="Email" placeholder="Email">
+                        <input type="text" name="Message" id="Message" placeholder="Message" class="message">
+                        <input type="submit" class="home-main-btn">
+                        <input type="reset"><br>
+                    </fieldset>
+                </form>
+            </section>
             <section id="contact-me">
                 <footer class="footer"> 
                     <div class="col-2">
