@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Ethan's Portfolio</title>
+    </head>
+    <body>
+        <nav>
+            <div class="logo">
+            </div>
+            <ul id="menuList">
+                <li><a href="portfolio.html">Home</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact-me">Contact</a></li>
+            </ul>
+            <div class="menu-icon">
+                <i class="fa fa-bars" onclick="toggleMenu()"></i>
+            </div>
+        </nav>
+        <div class="bg">
+            <section class="header-section" id="header-section">
+                <div class="header">
+                    <h1>Hey there!<br><span style="color: #bc44fd;">I'm Ethan</span></h1>
+                </div>
+                <div class="header-text">
+                    <h3 class="typing-text">I'm a <span></span></h3>
+                </div> 
+                <div class="btn-container">
+                    <button id="downloadCV" class="home-main-btn" onclick="downloadpdf()">Download My CV</button>
+                    <a href="#contact-me" class="home-main-btn">Click here to contact me</a>
+                </div>
+            </section>
+            <h1 class="centered-header" id="about-me">About Me</h1>
+            <div class="container">
+                <div class="image-and-content">
+                    <img src="css/images/IMG_1250.jpg" alt="About Me" class="about-me-image">
+                    <div class="content">
+                        <div class="about-me-box">
+                            <div class="box">
+                                <i class="fa fa-trophy"></i>
+                                <h1>Education</h1>
+                                <p>2nd Year<br>Undergraduate</p>
+                            </div>
+                            <div class="box">
+                                <i class="fa fa-archive"></i>
+                                <h1>Projects</h1>
+                                <p>5+ Projects<br>& Softwares developed</p>
+                            </div>
+                            <div class="box">
+                                <i class="fa fa-book"></i>
+                                <h1>Experience</h1>
+                                <p>4+ Years of<br>programming Experience</p>
+                            </div>
+                        </div>
+                        <div class="about-me-description">
+                            <p>Hey there! I'm Ethan Christoff, a second year undergraduate in the Informatics Institute of Technology
+                            , better known as IIT. I follow a degree in Artificial Intelligence and Data Science. I've covered multiple and 
+                            topics related to the context of my degree. Some of these include data model training which regard the use of tools such 
+                            R to train and educate language and image based models. As a result of this I've regarded the use of frameworks such 
+                            as pyspark and django. In terms of my experience in automation I've utilized and familiarized my self with Selenium
+                            with both Java and Python as a backend
+                            To summarize my expertise in the IT field, I would say that I have a solid understanding in
+                            web automation, data engineering and website & software development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <script src="js/portfolio.js"></script>
+    </body>
+</html>

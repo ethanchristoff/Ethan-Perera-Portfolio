@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+@media (max-width: 480px){
+    * {font-size: 30px;}
+}
+
+/*``````Section for centered headers``````*/
+
+/* Centered Headers */
+.centered-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    text-align: center;
+    color: #bc44fd !important;
+    position: relative;
+}
+
+.centered-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.centered-header::before,
+.centered-header::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 44%;
+    height: 2px;
+    background-color: #6b298e;
+}
+
+.centered-header::before { left: 0; }
+.centered-header::after { right: 0; }
+
+/*``````Section for the background``````*/
+
+.bg{background: #000; overflow: hidden;}
+
+/*-----------Animations for Header and Subheader-----------*/
+@keyframes slidedown {
+    0% {
+        letter-spacing: 75px;
+        opacity: 0; /* Fully transparent */
+    }
+    100% {
+        letter-spacing: 20px;
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/*-----------Segment for the header section-----------*/
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50vh;
+    font-size: 75px;
+    position: relative;
+    animation: slidedown 2s ease-in-out forwards;
+    opacity: 0;
+    transition: .3s ease;
+    margin-top: 80px;
+    z-index: 1;
+}
+
+.header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+}
+/*-----------Button Styling-----------*/
+.btn-container {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    align-items: center;     /* Vertically center them */
+    gap: 15px;               /* Space between buttons */
+    margin-top: 20px;        /* Add some space between the header-text and buttons */
+    margin-bottom: 25%;
+}
+
+.home-main-btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.3rem;
+    color: #bc44fd;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    border: 2px solid #bc44fd;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.home-main-btn:hover {
+    transform: scale3d(1.03);
+    background-color: #bc44fd;
+    color: black;
+    box-shadow: 0 0 25px #bc44fd;
+}
+
+
+
+/*-----------Segment for the navigation bar-----------*/
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a{
+    text-decoration: none;
+}
+
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: rgb(122, 28, 172);
+    display: block;
+    margin: auto;
+    transition: .5s;
+}
+
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+
+/*-----------Segment for the NavBar background and sticky feature-----------*/
+
+nav{
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000000;
+    position: relative;
+    height: 70px;
+}
+
+nav ul{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav ul li{
+    list-style-type: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav ul li a:hover {
+    border-bottom: 3px solid #bc44fd;
+}
+
+.menu-icon{
+    display: none;
+}
+
+.menu-icon i{
+    color: #fff;
+    font-size: 30px;
+}
+
+@media (max-width:600px) {
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        text-align: center;
+        background: #000000;
+        gap: 0;
+        overflow: hidden;
+    }
+    nav ul li{
+        padding: 20px;
+        padding-top: 0;
+    }
+    .menu-icon{
+        display: block;
+    }
+    #menuList{
+        transition: all 0.5s;
+    }
+}
+
+.navbar.sticky {
+    top: -100px; /* Moves the navbar out of view */
+    background-color: #fff; 
+}
+
+/*``````Section for the about me segment``````*/
+
+/* Container to align the image and content horizontally */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.image-and-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.about-me-image {
+    width: 480px; /* Fixed width */
+    height: 560px; /* Fixed height to match the width */
+    border-radius: 30px;
+    object-fit: cover; /* Ensures the image retains its aspect ratio and fills the container */
+    margin-right: 100px; /* Space between image and content */
+    border: 5px #bc44fd solid;
+    transition: .5s ease-in-out;
+}
+
+.about-me-image:hover {
+    transform: scale(1.05);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me-box {
+    display: flex;
+    flex-direction: row; /* Arrange boxes horizontally */
+    margin-bottom: 30px; /* Space below the boxes */
+    gap: 10px;
+}
+
+.box {
+    background-color: #000; /* Black background */
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center content horizontally inside each .box */
+    justify-content: center; /* Center content vertically inside each .box */
+    padding: 20px; /* Optional: Add padding inside each .box */
+    width: 200px; /* Set a fixed width for each .box element, adjust as needed */
+    height: 210px; /* Set a fixed height for each .box element, adjust as needed */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    gap: 10px;
+    transition: .3s ease; 
+}
+
+.box h1 {
+    font-size: 15px;
+}
+
+.box p {
+    color: #ffffff89;
+    font-size: 10px;
+    text-align: center;
+    line-height: 3;
+}
+
+.box:hover {
+    background: rgba(255, 255, 255, 0.389);
+}
+
+.about-me-description {
+    font-size: 16px; /* Adjust the font size as needed */
+    line-height: 2; /* Improve readability */
+    text-align: justify;
+    width: 620px; /* Same width as the combined boxes, adjust as needed */
+    margin-bottom: 20px; /* Space below the description if needed */
+}
+
+.about-me-description h1 {
+    font-size: 1px !important;
+}
+
+/*``````Segment for the professions``````*/
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::before{
+    content: "software Developer";
+    color: #bc44fd;
+    animation: words 20s infinite;
+}
+
+.typing-text span::after{
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid #bc44fd;
+    }
+}
+
+@keyframes words{
+    0%, 20%{
+        content: "Web Developer";
+    }
+    21%, 40%{
+        content: "Web Automation Engineer";
+    }
+    41%, 60%{
+        content: "Web & UI/UX Designer";
+    }
+    61%, 80%{
+        content: "Data Engineer";
+    }
+    81%, 100%{
+        content: "Customer Support Engineer";
+    }
+}
+
+/*``````Media Query for the menubar``````*/
+
+@media (max-width:600px) {
+    /*HEADER*/
+    .header {
+        font-size: 40px;
+    }
+
+    /*LINE*/
+    
+    .centered-header::before,
+    .centered-header::after {width: 20%;}
+
+    /*NAVBAR*/
+
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        text-align: center;
+        background: #000000;
+        gap: 0;
+        overflow: hidden;
+    }
+    nav ul li{
+        padding: 20px;
+        padding-top: 0;
+    }
+    .menu-icon{
+        display: block;
+    }
+    #menuList{
+        transition: all 0.5s;
+    }
+    
+    /*ABOUT ME*/
+    
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-and-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me-image {
+        width: 80%; /* Make image responsive to the screen width */
+        height: auto; /* Adjust height automatically */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add space below the image */
+    }
+
+    .about-me-box {
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center;
+        margin-bottom: 20px; /* Add space below each box */
+    }
+
+    .box {
+        width: 100%; /* Make the box take the full width */
+        max-width: 480px; /* Limit max width */
+    }
+
+    .about-me-description {
+        width: 100%; /* Make the description take full width */
+        max-width: 480px; /* Limit max width */
+    }
+
+    .about-me-description p{
+        font-size: 20px;
+    }
+
+    /*BUTTONS*/
+
+    .btn-container {
+        flex-direction: column;   /* Stack buttons vertically */
+        gap: 10px;                /* Reduce space between buttons */
+        margin-top: 10px;         /* Adjust margin for better spacing */
+        margin-bottom: 20%;       /* Adjust the bottom margin */
+    }
+    
+    .home-main-btn {
+        padding: 0.8rem 1.5rem;   /* Reduce padding for smaller buttons */
+        font-size: 1.1rem;        /* Smaller font size for mobile */
+        margin: 0.5rem;           /* Adjust margin for better spacing */
+    }
+}
