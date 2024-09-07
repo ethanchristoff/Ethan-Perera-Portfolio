@@ -468,3 +468,53 @@ nav ul li a:hover {
         margin: 0.5rem;           /* Adjust margin for better spacing */
     }
 }
+
+/*-----------Segment for the Footer section background-----------*/
+
+.footer {
+    padding: 30px; 
+    background: #000;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    font-size: 12px;
+}
+
+.footer div {
+    text-align: center;
+}
+    
+.footer div h3 {
+    color: #fff;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 15px; 
+    letter-spacing: 1px;
+}
+  
+.col-2{
+    color: #fff;
+}
+  
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #bc44fd;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #bc44fd;
+}
+
+.social-icons a:hover{
+    color: black;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #bc44fd;
+    box-shadow: 0  0 25px #bc44fd;
+}
