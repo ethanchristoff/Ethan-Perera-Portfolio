@@ -420,7 +420,7 @@ nav ul li a:hover {
     border: 2px #bc44fd solid;
     border-radius: 20px;
     min-width: 150px; 
-    min-height: 300px; 
+    min-height: 350px; 
     flex-grow: 1; 
     text-align: justify;
     gap: 20px;
