@@ -437,6 +437,10 @@ nav ul li a:hover {
     transform: scale(1.05) ;
 }
 
+.experience-container .experience-box h1{
+    font-size: 25px;
+}
+
 .experience-container .experience-box p{
     font-size: 15px;
 }
