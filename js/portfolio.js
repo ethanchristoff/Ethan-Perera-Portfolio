@@ -55,3 +55,7 @@ function email_submit() {
         return false; 
     }
 }
+
+function announcement(){
+    alert('Will be made public soon!')
+}

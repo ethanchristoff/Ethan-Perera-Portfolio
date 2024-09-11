@@ -124,8 +124,6 @@ a {
     box-shadow: 0 0 25px #bc44fd;
 }
 
-
-
 /*-----------Segment for the navigation bar-----------*/
 
 nav {
@@ -404,7 +402,67 @@ nav ul li a:hover {
     color: black; 
     transition: color 0.3s ease; 
 }
+/*``````Segment for the experience section``````*/
 
+.experience-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: stretch; 
+    gap: 20px; 
+    margin: 0 auto;
+    padding: 20px; 
+    width: 100%; 
+}
+
+.experience-container .experience-box {
+    padding: 20px;
+    margin: 10px;
+    border: 2px #bc44fd solid;
+    border-radius: 20px;
+    min-width: 150px; 
+    min-height: 300px; 
+    flex-grow: 1; 
+    text-align: justify;
+    gap: 20px;
+    line-height: 1.5rem;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; 
+    transition: .5s ease;
+}
+
+.experience-container .experience-box:hover {
+    transform: scale(1.05) ;
+}
+
+.experience-container .experience-box p{
+    font-size: 15px;
+}
+
+.experience-box-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #bc44fd;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    border: 2px solid #bc44fd;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin: 1rem;
+} 
+
+.experience-box-link:hover {
+    transform: scale3d(1.03);
+    background-color: #bc44fd;
+    color: black;
+    box-shadow: 0 0 25px #bc44fd;
+}
 /*``````Segment for the form``````*/
 
 .mail-me-form-container {
@@ -428,7 +486,7 @@ form{
 
 fieldset{
     border-radius: 15px;
-    border: 1px #bc44fd solid;
+    border: 3px #bc44fd solid;
 }
 
 input::placeholder{
@@ -612,5 +670,35 @@ input[type="submit"]:hover,input[type="reset"]:hover{
 
     fieldset{
         border: #000;
+    }
+
+    /*EXPERIENCE SECTION*/
+    .experience-container {
+        flex-direction: column; /* Changes the layout to column */
+        align-items: center; /* Centers each box in the column */
+    }
+    
+    .experience-container .experience-box {
+        width: 100%; /* Ensures each box takes full width in column layout */
+    }
+
+    .experience-container .experience-box:hover {
+        transform: scale(1.05) ;
+    }
+
+    .experience-container .experience-box h1 {
+        font-size: 20px;
+    }
+
+    .experience-container .experience-box p{
+        line-height: 25px;
+        font-size: 14px;
+    }
+
+    .experience-box-link {
+        padding: 0.8rem 1.5rem;   
+        font-size: 20px;        
+        padding: .5rem 1rem;
+        margin: 0.5rem;   
     }
 }
