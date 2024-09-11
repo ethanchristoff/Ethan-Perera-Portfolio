@@ -290,6 +290,7 @@ nav ul li a:hover {
     text-align: justify;
     width: 620px; 
     margin-bottom: 20px; 
+    letter-spacing: .2px;
 }
 
 .about-me-description h1 {
@@ -439,10 +440,12 @@ nav ul li a:hover {
 
 .experience-container .experience-box h1{
     font-size: 25px;
+    text-align: center;
 }
 
 .experience-container .experience-box p{
     font-size: 15px;
+    letter-spacing: .2px;
 }
 
 .experience-box-link {
