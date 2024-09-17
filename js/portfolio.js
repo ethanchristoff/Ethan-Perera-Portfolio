@@ -59,3 +59,22 @@ function email_submit() {
 function announcement(){
     alert('Will be made public soon!')
 }
+
+function openImage(img_num) {
+    const imageUrl_1 = "css/images/interschool\ esports\ poster\ var\ 5\ \ \(with\ brackets\).jpg";
+    const imageUrl_2 = "css/images/teaser-poster-tes.png";
+    const imageUrl_3 = "css/images/D1_Lewis.png";
+    switch (img_num){
+        case 1:
+            window.open(imageUrl_1, '_blank');
+            break;
+        
+        case 2:
+            window.open(imageUrl_2, '_blank');
+            break;
+        
+        case 3:
+            window.open(imageUrl_3, '_blank');
+            break;
+    }
+}

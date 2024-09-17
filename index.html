@@ -11,18 +11,17 @@
     </head>
     <body>
         <nav>
-            <div class="logo">
-            </div>
             <ul id="menuList">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#about-me">About</a></li>
                 <li><a href="#contact-me">Contact Me</a></li>
+                <li><a href="#gallery">Gallery</a></li>
             </ul>
             <div class="menu-icon">
                 <i class="fa fa-bars" onclick="toggleMenu()"></i>
             </div>
         </nav>
-        <div class="bg">
+        <div>
             <section class="header-section" id="header-section">
                 <div class="header">
                     <h1>Hey there!<br><span style="color: #bc44fd;">I'm Ethan</span></h1>
@@ -63,7 +62,7 @@
                             topics related to the context of my degree. Some of these include data model training which regard the use of tools such 
                             R to train and educate language and image based models. As a result of this I've regarded the use of frameworks such 
                             as pyspark and django. In terms of my experience in automation I've utilized and familiarized my self with Selenium
-                            with both Java and Python as a backend
+                            with both Java and Python as a backend. Besides that, i believe myself as to being a graphic designer/artist as well, feel free to check out the <span><a href="#gallery" class="in-text-link">gallery section</a></span>.
                             To summarize my expertise in the IT field, I would say that I have a solid understanding in
                             web automation, data engineering and website & software development</p>
                         </div>
@@ -87,12 +86,21 @@
                     <a class="experience-box-link" onclick="announcement()">Click Me</a>
                 </div>
             </div>
+            <h1 class="centered-header" id="gallery">Gallery</h1>
+            <div class="experience-container">
+                <div class="experience-box-img-1" onclick="openImage(1)">
+                </div>
+                <div class="experience-box-img-2" onclick="openImage(2)">
+                </div>
+                <div class="experience-box-img-3" onclick="openImage(3)">
+                </div>
+            </div>
             <h1 class="centered-header" id="contact-me">Contact Me</h1>
             <section class="mail-me-form-container">
                 <form class="mail-me-form" onsubmit="return email_submit()">
                     <fieldset>
                         <input type="text" name="name" id="name" placeholder="name">
-                        <input type="text" name="Email" id="Email" placeholder="Email">
+                        <input type="email" name="Email" id="Email" placeholder="Email">
                         <input type="text" name="Message" id="Message" placeholder="Message" class="message">
                         <input type="submit" class="home-main-btn">
                         <input type="reset"><br>
