@@ -94,3 +94,29 @@ window.addEventListener('scroll', function() {
         navBar.style.opacity = '1';
     } 
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const menuList = document.querySelectorAll("#menuList li a");
+    const menuItems = [
+        { icon: "fa-home", text: "Home" },
+        { icon: "fa-book", text: "About" },
+        { icon: "fa-phone", text: "Contact" },
+        { icon: "fa-photo", text: "Gallery" }
+    ];
+
+    function updateMenuIcons(mediaQuery) {
+        menuList.forEach((item, index) => {
+            if (mediaQuery.matches) {
+                item.innerHTML = menuItems[index].text;
+            } else {
+                item.innerHTML = `<i class="fa ${menuItems[index].icon}"></i>`;
+            }
+        });
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+    updateMenuIcons(mediaQuery);
+
+    mediaQuery.addEventListener('change', updateMenuIcons);
+});

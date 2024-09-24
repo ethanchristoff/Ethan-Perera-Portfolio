@@ -45,6 +45,17 @@ a {
     * {font-size: 30px;}
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /*``````Section for centered headers``````*/
 
 /* Centered Headers */
@@ -471,16 +482,32 @@ nav.scrolled {
     box-shadow: 0 0 25px #bc44fd;
 }
 
-.experience-box-img-1{
-    background-image: url("images/promotional-esports-poster.jpg");   
+
+
+.experience-box-img-1, .experience-box-img-2, .experience-box-img-3 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 0.2s;
 }
 
-.experience-box-img-2{
+.experience-box-img-1 {
+    background-image: url("images/promotional-esports-poster.jpg");  
+    animation-delay: 0.3s;
+}
+
+.experience-box-img-2 {
     background-image: url("images/teaser-poster-tes.png");
+    animation-delay: 0.5s; 
 }
 
-.experience-box-img-3{
+.experience-box-img-3 {
     background-image: url("images/t_shirt-design.png");
+    animation-delay: 0.7s; 
 }
 
 .experience-box-img-1,.experience-box-img-2,.experience-box-img-3{
