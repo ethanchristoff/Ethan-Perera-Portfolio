@@ -61,9 +61,9 @@ function announcement(){
 }
 
 function openImage(img_num) {
-    const imageUrl_1 = "css/images/interschool\ esports\ poster\ var\ 5\ \ \(with\ brackets\).jpg";
+    const imageUrl_1 = "css/images/promotional-esports-poster.jpg";
     const imageUrl_2 = "css/images/teaser-poster-tes.png";
-    const imageUrl_3 = "css/images/D1_Lewis.png";
+    const imageUrl_3 = "css/images/t_shirt-design.png";
     switch (img_num){
         case 1:
             window.open(imageUrl_1, '_blank');
@@ -78,3 +78,19 @@ function openImage(img_num) {
             break;
     }
 }
+
+window.addEventListener('scroll', function() {
+    const navBar = document.querySelector('nav');
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    if (window.innerWidth >= 600){
+        if (scrollPosition >= documentHeight - 100) {
+            navBar.style.opacity = '0'; // Hide the nav
+        } else {
+            navBar.style.opacity = '1'; // Show the nav
+        }
+    } else{
+        navBar.style.opacity = '1';
+    } 
+});

@@ -150,50 +150,14 @@ a {
 
 nav {
     display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links{
-    flex: 1;
-    text-align: right;
-}
-
-.nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
-}
-
-.nav-links ul li a{
-    text-decoration: none;
-}
-
-.nav-links ul li::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: rgb(122, 28, 172);
-    display: block;
-    margin: auto;
-    transition: .5s;
-}
-
-.nav-links ul li:hover::after{
-    width: 100%;
-}
-
-/*-----------Segment for the NavBar background and sticky feature-----------*/
-
-nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
+    padding: 1% 3%;
     justify-content: center;
-    height: 70px;
+    align-items: center;
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -201,7 +165,8 @@ nav {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 1000;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    opacity: 1; 
 }
 
 nav ul {
@@ -507,7 +472,7 @@ nav.scrolled {
 }
 
 .experience-box-img-1{
-    background-image: url("images/interschool\ esports\ poster\ var\ 5\ \ \(with\ brackets\).jpg");   
+    background-image: url("images/promotional-esports-poster.jpg");   
 }
 
 .experience-box-img-2{
@@ -515,7 +480,7 @@ nav.scrolled {
 }
 
 .experience-box-img-3{
-    background-image: url("images/D1_Lewis.png");
+    background-image: url("images/t_shirt-design.png");
 }
 
 .experience-box-img-1,.experience-box-img-2,.experience-box-img-3{
@@ -546,7 +511,7 @@ nav.scrolled {
 
 .mail-me-form-container {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     height: 30vh; /* This centers it vertically on the full page */
 }
@@ -630,109 +595,135 @@ input[type="submit"]:hover,input[type="reset"]:hover{
         height: 20vh;
     }
 
-    .header-text h3,span{font-size: 30px;}
+    .header-text h3, span {
+        font-size: 30px;
+    }
 
     /*LINE*/
-    
     .centered-header::before,
-    .centered-header::after {width: 20%;}
+    .centered-header::after {
+        width: 20%;
+    }
 
     /*NAVBAR*/
     nav {
         background: #000;
         border: none;
-        justify-content: right;
-        border-radius: 0;
+        justify-content: center;
+        border-radius: 10px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Make sure the navbar spans across the screen */
+        max-width: 600px;
+        position: fixed;
     }
 
-    nav ul{
-        position: absolute;
+    nav ul {
+        position: fixed;
+        width: 100%;
         top: 70px;
         left: 0;
         right: 0;
         flex-direction: column;
         text-align: center;
-        background: #000000;
+        background: rgba(0, 0, 0, 0.65); /* Use rgba for transparency */
         gap: 0;
         overflow: hidden;
+        border-radius: 30px;
+        z-index: 100;
+        margin: 0 auto; /* Center the navbar on smaller screens */
     }
-    nav ul li{
+
+    nav ul li {
         padding: 5px;
         padding-top: 0;
     }
-    .menu-icon{
+
+    .menu-icon {
         display: block;
     }
-    #menuList{
+
+    #menuList {
         transition: all 0.5s;
     }
     
     /*ABOUT ME*/
-    
     .container {
         flex-direction: column;
         align-items: center;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box; /* Ensure padding is handled well */
     }
 
     .image-and-content {
         flex-direction: column;
         align-items: center;
+        width: 100%; /* Ensure content stays within the viewport */
     }
 
     .about-me-image {
-        width: 80%; 
+        width: 100%; 
         height: auto; 
+        max-width: 480px; 
         margin-right: 0; 
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
+        box-sizing: border-box;
     }
 
     .about-me-box {
         flex-direction: column; 
         align-items: center;
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
+        width: 100%; /* Make sure the box adapts to smaller screens */
     }
 
     .box {
-        width: 100%; 
-        max-width: 480px; 
+        width: 100%;
+        max-width: 480px;
+        box-sizing: border-box; /* Control padding */
     }
 
     .about-me-description {
-        width: 100%; 
+        width: 100%;
         max-width: 480px;
     }
 
-    .about-me-description p, a{
+    .about-me-description p, a {
         line-height: 140%;
         font-size: 18px !important;
-        word-spacing: -1px; 
+        word-spacing: -1px;
     }
 
     /*BUTTONS*/
-
     .btn-container {
-        flex-direction: column;   
-        gap: 10px;                
-        margin-top: 10px;         
-        margin-bottom: 20%;       
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 20%;
     }
-    
+
     .home-main-btn {
-        padding: 0.8rem 1.5rem;   
-        font-size: 20px;        
+        padding: 0.8rem 1.5rem;
+        font-size: 20px;
         padding: .5rem 1rem;
-        margin: 0.5rem;         
+        margin: 0.5rem;
     }
     
     /*FOOTER*/
+    .col-2 p {
+        font-size: 20px;
+    }
 
-    .col-2 p{font-size: 20px;}
-
-    .social-icons a{
+    .social-icons a {
         width: 2rem;
         height: 2rem;
-        font-size: 1rem;
         margin-right: 10px;
+    }
+
+    .social-icons i {
+        font-size: 1.5em;
     }
 
     /*MAILTO FORM*/
@@ -741,7 +732,7 @@ input[type="submit"]:hover,input[type="reset"]:hover{
     }
 
     .mail-me-form {
-        width: 90%; 
+        width: 90%;
     }
 
     input[type="text"], input[type="email"] {
@@ -750,42 +741,52 @@ input[type="submit"]:hover,input[type="reset"]:hover{
         font-size: 15px;
     }
 
-    input[type="submit"],input[type="reset"] {
+    input[type="submit"], input[type="reset"] {
         width: 100%;
         margin: 0.5rem 0;
     }
 
-    fieldset{
+    fieldset {
         border: #000;
     }
 
     /*EXPERIENCE SECTION*/
     .experience-container {
-        flex-direction: column; /* Changes the layout to column */
-        align-items: center; /* Centers each box in the column */
+        flex-direction: column;
+        align-items: center;
     }
     
     .experience-container .experience-box {
-        width: 100%; /* Ensures each box takes full width in column layout */
+        width: 100%;
     }
 
     .experience-container .experience-box:hover {
-        transform: scale(1.05) ;
+        transform: scale(1.05);
     }
 
     .experience-container .experience-box h1 {
         font-size: 20px;
     }
 
-    .experience-container .experience-box p{
+    .experience-container .experience-box p {
         line-height: 25px;
         font-size: 14px;
     }
 
     .experience-box-link {
-        padding: 0.8rem 1.5rem;   
-        font-size: 20px;        
+        padding: 0.8rem 1.5rem;
+        font-size: 20px;
         padding: .5rem 1rem;
-        margin: 0.5rem;   
+        margin: 0.5rem;
+    }
+
+    /* GENERAL FIXES */
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
