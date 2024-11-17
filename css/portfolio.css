@@ -10,7 +10,7 @@ html {
 }
 
 html{
-    background-color: #000;
+    background: #000000;
 }
 
 a {
@@ -408,9 +408,10 @@ nav.scrolled {
     box-shadow: 0 0 25px #bc44fd;
 }
 
-.social-icons a:hover i{
+.social-icons a:hover i {
     color: black; 
     transition: color 0.3s ease; 
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
 /*``````Segment for the experience section``````*/
 
