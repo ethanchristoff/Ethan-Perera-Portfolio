@@ -1,4 +1,4 @@
-function downloadpdf() {
+    function downloadpdf() {
     const link = document.createElement('a');
     link.href = 'css/images/CV/Ethan.Perera_Resume.pdf'; 
     link.download = 'Ethan.Perera_CV.pdf'; 
