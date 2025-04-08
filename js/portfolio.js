@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { icon: "fa-book", text: "About" },
         { icon: "fa-phone", text: "Contact" },
         { icon: "fa-photo", text: "Gallery" },
-        { icon: "fa-globe", text: "digital-garden"}
+        { icon: "fa-globe", text: "Digital Garden"}
     ];
 
     function updateMenuIcons(mediaQuery) {
