@@ -9,8 +9,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <title>Ethan's Portfolio</title>
+        <meta charset="UTF-8">
     </head>
     <body>
+        <!-- Add this at the beginning of your body tag -->
+        <div id="loading-overlay">
+            <div id="countdown-container">
+                <div id="countdown-number">5</div>
+                <svg id="countdown-circle" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#bc44fd" stroke-width="5" class="circle-animation"/>
+                </svg>
+            </div>
+            <div class="loading-text">LOADING PORTFOLIO</div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let count = 5;
+                const countdownNumber = document.getElementById('countdown-number');
+                const loadingOverlay = document.getElementById('loading-overlay');
+                
+                const interval = setInterval(function() {
+                    count--;
+                    countdownNumber.textContent = count;
+                    
+                    if (count <= 0) {
+                        clearInterval(interval);
+                        // Fade out the loading overlay
+                        loadingOverlay.style.opacity = 0;
+                        
+                        // Remove the overlay from DOM after animation completes
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    }
+                }, 1000);
+            });
+        </script>
         <nav>
             <ul id="menuList">
                 <li><a href="index.html"></a></li>
@@ -119,7 +154,7 @@
                 <div class="experience-box">
                     <h1>Fall Detection Project</h1>
                     <p>A fall detection application that uses IOT devices to detect if a person is in the process of falling or not. The project was a collaborative effort amongst four members, I created the joint based fall detection model that detects if a person in about to fall (or in the process of it) based on their joints</p>
-                    <a class="experience-box-link" onclick="announcement()">Click Me</a>
+                    <a href="https://github.com/ethanchristoff/CM2603-Data_Science_Project-G20" target="_blank" class="experience-box-link">Click Me</a>
                 </div>
             </div>
             <h1 class="centered-header" id="gallery">Gallery</h1>
