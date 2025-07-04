@@ -12,40 +12,24 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <!-- Add this at the beginning of your body tag -->
-        <div id="loading-overlay">
-            <div id="countdown-container">
-                <div id="countdown-number">5</div>
-                <svg id="countdown-circle" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="#bc44fd" stroke-width="5" class="circle-animation"/>
-                </svg>
+        <!-- Animated Background -->
+        <div id="animated-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+                <div class="shape shape-6"></div>
+                <div class="shape shape-7"></div>
+                <div class="shape shape-8"></div>
             </div>
-            <div class="loading-text">LOADING PORTFOLIO</div>
+            <div class="gradient-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
         </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                let count = 5;
-                const countdownNumber = document.getElementById('countdown-number');
-                const loadingOverlay = document.getElementById('loading-overlay');
-                
-                const interval = setInterval(function() {
-                    count--;
-                    countdownNumber.textContent = count;
-                    
-                    if (count <= 0) {
-                        clearInterval(interval);
-                        // Fade out the loading overlay
-                        loadingOverlay.style.opacity = 0;
-                        
-                        // Remove the overlay from DOM after animation completes
-                        setTimeout(() => {
-                            loadingOverlay.style.display = 'none';
-                        }, 500);
-                    }
-                }, 1000);
-            });
-        </script>
         <nav>
             <ul id="menuList">
                 <li><a href="index.html"></a></li>
@@ -92,33 +76,55 @@
                             <div class="box">
                                 <i class="fa fa-trophy"></i>
                                 <h1>Education</h1>
-                                <p>2nd Year<br>Undergraduate</p>
+                                <p>3nd Year<br>Undergraduate</p>
                             </div>
                             <div class="box">
                                 <i class="fa fa-archive"></i>
                                 <h1>Projects</h1>
-                                <p>10+ Projects<br>& Softwares developed</p>
+                                <p>20+ Projects<br>& Softwares developed</p>
                             </div>
                             <div class="box">
                                 <i class="fa fa-book"></i>
                                 <h1>Experience</h1>
-                                <p>5+ Years of<br>programming Experience</p>
+                                <p>6+ Years of<br>programming Experience</p>
                             </div>
                             <div class="box">
                                 <i class="fa fa-book"></i>
                                 <h1>Experience</h1>
-                                <p>1+ Years of<br>DevOps Experience</p>
+                                <p>1+ Years of<br>Ai Enginering Experience</p>
+                            </div>
+                            <div class="box">
+                                <i class="fa fa-code"></i>
+                                <h1>Skills</h1>
+                                <p>Proficient in<br>Machine Learning & AI</p>
+                            </div>
+                            <div class="box">
+                                <i class="fa fa-smile-o"></i>
+                                <h1>Understanding</h1>
+                                <p>Multiple projects handled<br>With maximized satisfaction</p>
                             </div>
                         </div>
                         <div class="about-me-description">
-                            <p>Hey there! I'm Ethan Christoff, a second year undergraduate in the Informatics Institute of Technology
-                            , better known as IIT. I follow a degree in Artificial Intelligence and Data Science. I've covered multiple and 
-                            topics related to the context of my degree. Some of these include data model training which regard the use of tools such 
-                            R to train and educate language and image based models. As a result of this I've regarded the use of frameworks such 
-                            as flask and django. In terms of my experience in automation I've utilized and familiarized my self with Selenium
-                            with both Java and Python as a backend. Besides that, i believe myself as to being a graphic designer/artist as well, feel free to check out the <span><a href="#gallery" class="in-text-link">gallery section</a></span>.
-                            To summarize my expertise in the IT field, I would say that I have a solid understanding in
-                            web automation, data engineering, Devops and website & software development</p>
+                            <p>Hello! I'm Ethan Christoff, a third-year undergraduate at the Informatics Institute of Technology (IIT), 
+                            pursuing a degree in Artificial Intelligence and Data Science. Throughout my academic journey, I've developed 
+                            extensive expertise in various cutting-edge technologies and methodologies.</p>
+
+                            <p>My technical proficiency includes:</p>
+                            <ul>
+                                <li>Machine Learning & Data Science: Experienced in developing and training data models using R and Python, 
+                                    with a focus on both natural language processing and computer vision applications</li>
+                                <li>Web Development: Proficient in building robust web applications using frameworks like Flask and Django</li>
+                                <li>Test Automation: Strong background in implementing automated testing solutions using Selenium with both 
+                                    Java and Python</li>
+                                <li>DevOps: Familiar with continuous integration/deployment pipelines and containerization technologies</li>
+                            </ul>
+
+                            <p>Beyond technical skills, I'm also passionate about graphic design and digital art. You can explore some of 
+                            my creative work in the <span><a href="#gallery" class="in-text-link">gallery section</a></span>.</p>
+
+                            <p>My diverse skill set encompasses web automation, data engineering, DevOps practices, and full-stack 
+                            development, positioning me as a versatile technology professional ready to tackle complex challenges in 
+                            the ever-evolving tech landscape.</p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +160,7 @@
                 <div class="experience-box">
                     <h1>Fall Detection Project</h1>
                     <p>A fall detection application that uses IOT devices to detect if a person is in the process of falling or not. The project was a collaborative effort amongst four members, I created the joint based fall detection model that detects if a person in about to fall (or in the process of it) based on their joints</p>
-                    <a href="https://github.com/ethanchristoff/CM2603-Data_Science_Project-G20" target="_blank" class="experience-box-link">Click Me</a>
+                    <a href="https://fallguardpro.netlify.app/" target="_blank" class="experience-box-link">Click Me</a>
                 </div>
             </div>
             <h1 class="centered-header" id="gallery">Gallery</h1>
