@@ -1,4 +1,4 @@
-    function downloadpdf() {
+function downloadpdf() {
     const link = document.createElement('a');
     link.href = 'css/images/CV/Ethan.Perera_Resume.pdf'; 
     link.download = 'Ethan.Perera_CV.pdf'; 
@@ -121,3 +121,82 @@ document.addEventListener("DOMContentLoaded", function() {
 
     mediaQuery.addEventListener('change', updateMenuIcons);
 });
+
+// Hugging Face inspired enterprise section interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Add click functionality to feature cards
+    const featureCards = document.querySelectorAll('.feature-card');
+    
+    featureCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const feature = this.dataset.feature;
+            
+            // Add a ripple effect
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple-effect');
+            this.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+            
+            // Handle different feature clicks
+            switch(feature) {
+                case 'projects':
+                    scrollToSection('project-section');
+                    break;
+                case 'technologies':
+                case 'skills':
+                    scrollToSection('aboutme-section');
+                    break;
+                case 'experience':
+                    scrollToSection('experience-section');
+                    break;
+                case 'portfolio':
+                    scrollToSection('project-section');
+                    break;
+                case 'contact':
+                    scrollToSection('contact-section');
+                    break;
+                default:
+                    console.log('Feature clicked:', feature);
+            }
+        });
+    });
+    
+    // Enhanced floating animation for 3D shapes
+    const shapes = document.querySelectorAll('.shape-3d');
+    shapes.forEach((shape, index) => {
+        // Add random floating movement
+        const randomFloat = () => {
+            const x = Math.random() * 20 - 10;
+            const y = Math.random() * 20 - 10;
+            const rotation = Math.random() * 360;
+            
+            shape.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+        };
+        
+        // Start random floating with different intervals
+        setInterval(randomFloat, 3000 + (index * 500));
+    });
+    
+    // Enterprise button functionality
+    const enterpriseBtn = document.querySelector('.enterprise-btn');
+    if (enterpriseBtn) {
+        enterpriseBtn.addEventListener('click', function() {
+            scrollToSection('aboutme-section');
+        });
+    }
+});
+
+// Helper function for smooth scrolling
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
