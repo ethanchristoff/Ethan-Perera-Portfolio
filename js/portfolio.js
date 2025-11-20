@@ -1,3 +1,11 @@
+// Initialize EmailJS
+(function(){
+    emailjs.init({
+      publicKey: "3vKfHl_F8eO1j_0RR",
+    });
+ })();
+
+// Download PDF Function
 function downloadpdf() {
     const link = document.createElement('a');
     link.href = 'css/images/CV/Ethan.Perera_Resume.pdf'; 
@@ -5,198 +13,260 @@ function downloadpdf() {
     link.click(); 
 }
 
-// Segment for the popup navigation bar
-let menuList = document.getElementById("menuList")
-menuList.style.maxHeight = "0px";
-
+// Mobile Menu Toggle
 function toggleMenu(){
-    if(menuList.style.maxHeight == "0px")
-    {
-        menuList.style.maxHeight = "300px";
+    const menuList = document.getElementById("menuList");
+    menuList.classList.toggle("active");
+}
+
+// Typing Effect
+const typingText = document.querySelector('.typing-text');
+const words = ["Software Developer", "ML Engineer", "Data Scientist", "Automation Expert"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
     }
-    else{
-        menuList.style.maxHeight = "0px";
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000); // Pause at end of word
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 500); // Pause before new word
+    } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
     }
 }
 
-(function(){
-    emailjs.init({
-      publicKey: "3vKfHl_F8eO1j_0RR",
-    });
- })();
+document.addEventListener('DOMContentLoaded', typeEffect);
 
+// Scroll Animation (Intersection Observer)
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show-el');
+        }
+    });
+}, observerOptions);
+
+const hiddenElements = document.querySelectorAll('.hidden-el');
+hiddenElements.forEach((el) => observer.observe(el));
+
+// Email Submission
 function email_submit() {
     event.preventDefault();
 
-    // Collect form data
     const name = document.getElementById('name').value;
     const email = document.getElementById('Email').value;
     const message = document.getElementById('Message').value;
 
-    if (name == '' || email == ''){
-        alert("Ensure that you've entered both you're name and Email address!")
-    }else{
-        const templateParams = {
-            to_email: 'ethan.christoff@gmail.com',
-            from_name: name, 
-            message: message, 
-            reply_to: email 
-        };
+    const btn = document.querySelector('.contact-form button');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
 
-        emailjs.send('service_rbgxt4h', 'template_99bnb6g', templateParams)
-            .then(function(response) {
-                alert('Email sent successfully!');
-                console.log('SUCCESS!', response.status, response.text);
-            }, function(error) {
-                alert('Failed to send email. Please try again.');
-                console.log('FAILED...', error);
-            });
+    const templateParams = {
+        to_email: 'ethan.christoff@gmail.com',
+        from_name: name, 
+        message: message, 
+        reply_to: email 
+    };
 
-        return false; 
-    }
+    emailjs.send('service_rbgxt4h', 'template_99bnb6g', templateParams)
+        .then(function(response) {
+            alert('Message sent successfully!');
+            document.querySelector('.contact-form').reset();
+            btn.textContent = originalText;
+        }, function(error) {
+            alert('Failed to send message. Please try again.');
+            btn.textContent = originalText;
+            console.log('FAILED...', error);
+        });
+
+    return false; 
 }
 
+// Helper Functions
 function announcement(){
-    alert('Will be made public soon!')
+    alert('This tool will be made public publicly soon!');
 }
 
 function openImage(img_num) {
-    const imageUrl_1 = "css/images/promotional-esports-poster.jpg";
-    const imageUrl_2 = "css/images/teaser-poster-tes.png";
-    const imageUrl_3 = "css/images/t_shirt-design.png";
-    switch (img_num){
-        case 1:
-            window.open(imageUrl_1, '_blank');
-            break;
-        
-        case 2:
-            window.open(imageUrl_2, '_blank');
-            break;
-        
-        case 3:
-            window.open(imageUrl_3, '_blank');
-            break;
-    }
-}
-
-window.addEventListener('scroll', function() {
-    const navBar = document.querySelector('nav');
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight;
-
-    if (window.innerWidth >= 600){
-        if (scrollPosition >= documentHeight - 100) {
-            navBar.style.opacity = '0'; // Hide the nav
-        } else {
-            navBar.style.opacity = '1'; // Show the nav
-        }
-    } else{
-        navBar.style.opacity = '1';
-    } 
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const menuList = document.querySelectorAll("#menuList li a");
-    const menuItems = [
-        { icon: "fa-home", text: "Home" },
-        { icon: "fa-book", text: "About" },
-        { icon: "fa-phone", text: "Contact" },
-        { icon: "fa-photo", text: "Gallery" },
-        { icon: "fa-globe", text: "Digital Garden"}
+    const images = [
+        "css/images/promotional-esports-poster.jpg",
+        "css/images/teaser-poster-tes.png",
+        "css/images/t_shirt-design.png"
     ];
-
-    function updateMenuIcons(mediaQuery) {
-        menuList.forEach((item, index) => {
-            if (mediaQuery.matches) {
-                item.innerHTML = menuItems[index].text;
-            } else {
-                item.innerHTML = `<i class="fa ${menuItems[index].icon}"></i>`;
-            }
-        });
-    }
-
-    const mediaQuery = window.matchMedia("(max-width: 600px)");
-
-    updateMenuIcons(mediaQuery);
-
-    mediaQuery.addEventListener('change', updateMenuIcons);
-});
-
-// Hugging Face inspired enterprise section interactions
-document.addEventListener('DOMContentLoaded', function() {
-    // Add click functionality to feature cards
-    const featureCards = document.querySelectorAll('.feature-card');
-    
-    featureCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const feature = this.dataset.feature;
-            
-            // Add a ripple effect
-            const ripple = document.createElement('div');
-            ripple.classList.add('ripple-effect');
-            this.appendChild(ripple);
-            
-            // Remove ripple after animation
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-            
-            // Handle different feature clicks
-            switch(feature) {
-                case 'projects':
-                    scrollToSection('project-section');
-                    break;
-                case 'technologies':
-                case 'skills':
-                    scrollToSection('aboutme-section');
-                    break;
-                case 'experience':
-                    scrollToSection('experience-section');
-                    break;
-                case 'portfolio':
-                    scrollToSection('project-section');
-                    break;
-                case 'contact':
-                    scrollToSection('contact-section');
-                    break;
-                default:
-                    console.log('Feature clicked:', feature);
-            }
-        });
-    });
-    
-    // Enhanced floating animation for 3D shapes
-    const shapes = document.querySelectorAll('.shape-3d');
-    shapes.forEach((shape, index) => {
-        // Add random floating movement
-        const randomFloat = () => {
-            const x = Math.random() * 20 - 10;
-            const y = Math.random() * 20 - 10;
-            const rotation = Math.random() * 360;
-            
-            shape.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
-        };
-        
-        // Start random floating with different intervals
-        setInterval(randomFloat, 3000 + (index * 500));
-    });
-    
-    // Enterprise button functionality
-    const enterpriseBtn = document.querySelector('.enterprise-btn');
-    if (enterpriseBtn) {
-        enterpriseBtn.addEventListener('click', function() {
-            scrollToSection('aboutme-section');
-        });
-    }
-});
-
-// Helper function for smooth scrolling
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+    if(images[img_num - 1]) {
+        window.open(images[img_num - 1], '_blank');
     }
 }
+
+// Navbar Scroll Effect
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.style.top = '10px';
+        document.querySelector('.nav-container').style.background = 'rgba(5, 5, 5, 0.9)';
+    } else {
+        nav.style.top = '20px';
+        document.querySelector('.nav-container').style.background = 'rgba(10, 10, 10, 0.7)';
+    }
+});
+
+/* ==========================================
+   PIXEL FLUID BACKGROUND ANIMATION
+   ========================================== */
+const canvas = document.getElementById('pixel-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray;
+
+// Handle mouse interaction
+let mouse = {
+    x: null,
+    y: null,
+    radius: (canvas.height/80) * (canvas.width/80)
+}
+
+window.addEventListener('mousemove', 
+    function(event) {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    }
+);
+
+// Create Particle (The Pixel)
+class Particle {
+    constructor(x, y, directionX, directionY, size, color) {
+        this.x = x;
+        this.y = y;
+        this.directionX = directionX;
+        this.directionY = directionY;
+        this.size = size;
+        this.color = color;
+    }
+
+    // Method to draw individual pixel (square)
+    draw() {
+        ctx.beginPath();
+        ctx.rect(this.x, this.y, this.size, this.size); // square shape for pixel theme
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+
+    // Check particle position, check mouse position, move the particle, draw the particle
+    update() {
+        // Check if particle is still within canvas
+        if (this.x > canvas.width || this.x < 0) {
+            this.directionX = -this.directionX;
+        }
+        if (this.y > canvas.height || this.y < 0) {
+            this.directionY = -this.directionY;
+        }
+
+        // Check collision detection - mouse position / particle position
+        let dx = mouse.x - this.x;
+        let dy = mouse.y - this.y;
+        let distance = Math.sqrt(dx*dx + dy*dy);
+        
+        if (distance < mouse.radius + this.size){
+            if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
+                this.x += 2;
+            }
+            if (mouse.x > this.x && this.x > this.size * 10) {
+                this.x -= 2;
+            }
+            if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
+                this.y += 2;
+            }
+            if (mouse.y > this.y && this.y > this.size * 10) {
+                this.y -= 2;
+            }
+        }
+        
+        // Move particle
+        this.x += this.directionX;
+        this.y += this.directionY;
+        
+        // Draw particle
+        this.draw();
+    }
+}
+
+// Create particle array
+function init() {
+    particlesArray = [];
+    // Number of particles proportional to screen size
+    let numberOfParticles = (canvas.height * canvas.width) / 9000;
+    
+    for (let i = 0; i < numberOfParticles; i++) {
+        let size = (Math.random() * 3) + 1; // Size of pixel
+        let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+        let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+        let directionX = (Math.random() * 1) - 0.5; // Speed
+        let directionY = (Math.random() * 1) - 0.5;
+        let color = '#bc44fd'; // Your purple color
+
+        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+    }
+}
+
+// Animation Loop
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+    }
+    connect();
+}
+
+// Draw lines between particles (The "Fluid" part)
+function connect() {
+    let opacityValue = 1;
+    for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+            let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+            + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+            
+            // If close enough, draw a line
+            if (distance < (canvas.width/7) * (canvas.height/7)) {
+                opacityValue = 1 - (distance/20000);
+                ctx.strokeStyle = 'rgba(188, 68, 253,' + opacityValue + ')';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+window.addEventListener('resize', function() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    mouse.radius = ((canvas.height/80) * (canvas.height/80));
+    init();
+});
+
+init();
+animate();

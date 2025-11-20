@@ -1,203 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="css/portfolio.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/x-icon" href="css/images/EP-logo.ico">
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <head>
-        <title>Ethan's Portfolio</title>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <!-- Animated Background -->
-        <div id="animated-background">
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-                <div class="shape shape-5"></div>
-                <div class="shape shape-6"></div>
-                <div class="shape shape-7"></div>
-                <div class="shape shape-8"></div>
-            </div>
-            <div class="gradient-orbs">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
-                <div class="orb orb-3"></div>
-            </div>
-        </div>
-        <nav>
+    <title>Ethan's Portfolio</title>
+    <link rel="stylesheet" href="css/portfolio.css">
+    <!-- Using FontAwesome and Google Fonts (Outfit/Inter for a modern tech look) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="css/images/EP-logo.ico">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Fluid Animated Background -->
+    <canvas id="pixel-canvas"></canvas>
+    <div class="scanline-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">EP.</div>
             <ul id="menuList">
-                <li><a href="index.html"></a></li>
-                <li><a href="#about-me"></a></li>
-                <li><a href="#contact-me"></a></li>
-                <li><a href="#gallery"></a></li>
-                <li><a href="#digital-garden"></a></li>
+                <li><a href="#header-section" class="active">Home</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact-me">Contact</a></li>
             </ul>
             <div class="menu-icon">
                 <i class="fa fa-bars" onclick="toggleMenu()"></i>
             </div>
-        </nav>
-        <div>
-            <section class="header-section" id="header-section">
-                <div class="header">
-                    <h1>Hey there!<br><span style="color: #bc44fd;">I'm Ethan</span></h1>
-                </div>
-                <div class="header-text">
-                    <h3 class="typing-text">I'm a <span></span></h3>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="header-section" id="header-section">
+            <div class="hero-content hidden-el">
+                <h1>Hey there!<br><span class="gradient-text">I'm Ethan</span></h1>
+                <div class="typing-container">
+                    <h3>I'm a <span class="typing-text"></span></h3>
                 </div> 
                 <div class="btn-container">
-                    <button id="downloadCV" class="home-main-btn" onclick="downloadpdf()">Download My CV</button>
-                    <a href="#contact-me" class="home-main-btn">Click here to contact me</a>
+                    <button class="glow-btn primary" onclick="downloadpdf()">
+                        <i class="fa fa-download"></i> Download CV
+                    </button>
+                    <a href="#contact-me" class="glow-btn secondary">Contact Me</a>
                 </div>
-            </section>
-            
-            <!-- Page-wide section link -->
-            <section class="full-width-link-section" id="digital-garden">
-                <a href="https://ethans-digital-garden.netlify.app" target="_blank" class="page-wide-link">
-                    <div class="page-wide-link-content">
-                        <h2>Take a look at my digital garden!</h2>
-                        <p>I maintain a repository of notes that I've taken for different topics that I've covered throughout my tenure at university</p>
-                        <span class="link-button">Click Me</span>
+            </div>
+        </section>
+        
+        <!-- Digital Garden Link -->
+        <section class="wide-link-section hidden-el" id="digital-garden">
+            <a href="https://ethans-digital-garden.netlify.app" target="_blank" class="glass-card wide-card">
+                <div class="card-content">
+                    <i class="fa fa-network-wired icon-large"></i>
+                    <div class="text-content">
+                        <h2>Digital Garden</h2>
+                        <p>Explore my repository of university notes and research topics.</p>
                     </div>
-                </a>
-            </section>
-            
-            <h1 class="centered-header" id="about-me">About Me</h1>
+                    <div class="arrow-btn"><i class="fa fa-arrow-right"></i></div>
+                </div>
+            </a>
+        </section>
+        
+        <!-- About Me -->
+        <section id="about-me">
+            <h1 class="section-title hidden-el">About Me</h1>
             <div class="container">
                 <div class="image-and-content">
-                    <img src="css/images/IMG_1250.jpg" alt="About Me" class="about-me-image">
+                    <div class="img-wrapper hidden-el">
+                        <img src="css/images/IMG_1250.jpg" alt="Ethan Christoff" class="profile-img">
+                    </div>
+                    
                     <div class="content">
-                        <div class="about-me-box">
-                            <div class="box">
-                                <i class="fa fa-trophy"></i>
-                                <h1>Education</h1>
-                                <p>3nd Year<br>Undergraduate</p>
+                        <div class="stats-grid hidden-el">
+                            <div class="stat-box glass-card">
+                                <i class="fa fa-graduation-cap"></i>
+                                <h3>Education</h3>
+                                <p>3rd Year<br>Undergraduate</p>
                             </div>
-                            <div class="box">
-                                <i class="fa fa-archive"></i>
-                                <h1>Projects</h1>
-                                <p>20+ Projects<br>& Softwares developed</p>
+                            <div class="stat-box glass-card">
+                                <i class="fa fa-code-branch"></i>
+                                <h3>Projects</h3>
+                                <p>20+ Completed<br>Solutions</p>
                             </div>
-                            <div class="box">
-                                <i class="fa fa-briefcase"></i>
-                                <h1>Ocupations</h1>
-                                <p>Multiple occupations/positions undertaken<br>and overcome over the years</p>
-                            </div>
-                            <div class="box">
-                                <i class="fa fa-book"></i>
-                                <h1>Experience</h1>
-                                <p>1+ Years of<br>Ai Enginering Experience</p>
-                            </div>
-                            <div class="box">
-                                <i class="fa fa-code"></i>
-                                <h1>Skills</h1>
-                                <p>Proficient in<br>Machine Learning & AI</p>
-                            </div>
-                            <div class="box">
-                                <i class="fa fa-smile-o"></i>
-                                <h1>Understanding</h1>
-                                <p>Multiple projects handled<br>With maximized satisfaction</p>
+                            <div class="stat-box glass-card">
+                                <i class="fa fa-brain"></i>
+                                <h3>AI & ML</h3>
+                                <p>1+ Year<br>Engineering Exp</p>
                             </div>
                         </div>
-                        <div class="about-me-description">
-                            <p>Hello! I'm Ethan Christoff, a third-year undergraduate at the Informatics Institute of Technology (IIT), 
-                            pursuing a degree in Artificial Intelligence and Data Science. Throughout my academic journey, I've developed 
-                            extensive expertise in various cutting-edge technologies and methodologies.</p>
 
-                            <p>My technical proficiency includes:</p>
-                            <ul>
-                                <li>Machine Learning & Data Science: Experienced in developing and training data models using R and Python, 
-                                    with a focus on both natural language processing and computer vision applications</li>
-                                <li>Web Development: Proficient in building robust web applications using frameworks like Flask and Django</li>
-                                <li>Test Automation: Strong background in implementing automated testing solutions using Selenium with both 
-                                    Java and Python</li>
-                                <li>DevOps: Familiar with continuous integration/deployment pipelines and containerization technologies</li>
+                        <div class="bio-text glass-card hidden-el">
+                            <p><span class="highlight">Hello!</span> I'm Ethan Christoff, a third-year undergraduate at the Informatics Institute of Technology (IIT), pursuing a degree in Artificial Intelligence and Data Science.</p>
+
+                            <p>My technical arsenal includes:</p>
+                            <ul class="skill-list">
+                                <li><i class="fa fa-check"></i> <span><strong>ML & Data Science:</strong> R, Python, NLP, Computer Vision</span></li>
+                                <li><i class="fa fa-check"></i> <span><strong>Web Dev:</strong> Flask, Django, Full Stack</span></li>
+                                <li><i class="fa fa-check"></i> <span><strong>Automation:</strong> Selenium (Java/Python)</span></li>
+                                <li><i class="fa fa-check"></i> <span><strong>DevOps:</strong> CI/CD, Docker</span></li>
                             </ul>
-
-                            <p>Beyond technical skills, I'm also passionate about graphic design and digital art. You can explore some of 
-                            my creative work in the <span><a href="#gallery" class="in-text-link">gallery section</a></span>.</p>
-
-                            <p>My diverse skill set encompasses web automation, data engineering, DevOps practices, and full-stack 
-                            development, positioning me as a versatile technology professional ready to tackle complex challenges in 
-                            the ever-evolving tech landscape.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="experience-container">
-                <div class="experience-box">
-                    <h1>Discord Bot</h1>
-                    <p>I've developed multiple discord bots, each of which are available on my github profile. All of them were developed by utilizing the Java Discord API. Some of these bots act as a warn bot while the other takes on the role of a chatbot that utilizes ollama to locally host a model.</p>
-                    <a href="https://github.com/ethanchristoff/Ollama-Discord-Bot" target="_blank" class="experience-box-link">Click Me</a>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h1 class="section-title hidden-el">Projects</h1>
+            <div class="projects-grid">
+                <div class="project-card glass-card hidden-el">
+                    <div class="card-header">
+                        <i class="fa-brands fa-discord"></i>
+                        <h2>Discord Bots</h2>
+                    </div>
+                    <p>Multiple Java-based Discord bots acting as automated moderation tools and Ollama-integrated LLM chatbots.</p>
+                    <a href="https://github.com/ethanchristoff/Ollama-Discord-Bot" target="_blank" class="link-text">View Source <i class="fa fa-external-link-alt"></i></a>
                 </div>
-                <div class="experience-box">
-                    <h1>Java Application</h1>
-                    <p>For my most recent coursework I've developed an inventory management system that regards the storing of "horses". Not to mention that these horses may also be raced against each other while having their potential wins visualized as well</p>
-                    <a href="https://github.com/ethanchristoff/CM1601_2331419_20221812_Ethan.P_JavaFX" target="_blank" class="experience-box-link">Click Me</a>
+
+                <div class="project-card glass-card hidden-el">
+                    <div class="card-header">
+                        <i class="fa-brands fa-java"></i>
+                        <h2>Inventory System</h2>
+                    </div>
+                    <p>A JavaFX application for managing inventory (horses), featuring race simulations and win-potential visualization.</p>
+                    <a href="https://github.com/ethanchristoff/CM1601_2331419_20221812_Ethan.P_JavaFX" target="_blank" class="link-text">View Source <i class="fa fa-external-link-alt"></i></a>
                 </div>
-                <div class="experience-box">
-                    <h1>Web Automation Application</h1>
-                    <p>I've developed a web based application that can scroll through multiple profiles on linkedin and extract their profile, potential email based on the company they work for and all of these may be filtered to a specific search query as well. A backend of selenium in python was utilized for this with pandas as well. </p>
-                    <a class="experience-box-link" onclick="announcement()">Click Me</a>
+
+                <div class="project-card glass-card hidden-el">
+                    <div class="card-header">
+                        <i class="fa fa-robot"></i>
+                        <h2>Web Scraper</h2>
+                    </div>
+                    <p>An automated Selenium/Python tool that mines LinkedIn profiles and emails based on filtered search queries.</p>
+                    <a onclick="announcement()" class="link-text" style="cursor: pointer;">Coming Soon <i class="fa fa-clock"></i></a>
+                </div>
+
+                <div class="project-card glass-card hidden-el">
+                    <div class="card-header">
+                        <i class="fa fa-chart-line"></i>
+                        <h2>Predictive Algo</h2>
+                    </div>
+                    <p>Bank deposit prediction classification algorithm utilizing Random Forest and Neural Networks on public datasets.</p>
+                    <a href="https://github.com/ethanchchristoff/CM2604_CW" target="_blank" class="link-text">View Source <i class="fa fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="project-card glass-card hidden-el">
+                    <div class="card-header">
+                        <i class="fa fa-newspaper"></i>
+                        <h2>News Recommender</h2>
+                    </div>
+                    <p>NLP-based recommendation system analyzing article content to suggest news based on user reading history.</p>
+                    <a href="https://github.com/ethanchristoff/NLP-Based-News-Recommendation-System" target="_blank" class="link-text">View Source <i class="fa fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="project-card glass-card hidden-el">
+                    <div class="card-header">
+                        <i class="fa fa-heartbeat"></i>
+                        <h2>Fall Detection</h2>
+                    </div>
+                    <p>IoT collaborative project utilizing joint-based detection models to identify potential falls in real-time.</p>
+                    <a href="https://github.com/ethanchristoff/CM2603-Data_Science_Project-G20" target="_blank" class="link-text">View Source <i class="fa fa-external-link-alt"></i></a>
                 </div>
             </div>
-            <div class="experience-container">
-                <div class="experience-box">
-                    <h1>Predictive Algorithm</h1>
-                    <p>I developed a simple classification algorithm that can predict whether or not an individual is to make a bank deposit or not based on a publicly available dataset. It regards the use of a simple random forest and neural network, each of which had commendable accuracies and classification criterias.</p>
-                    <a href="https://github.com/ethanchchristoff/CM2604_CW" target="_blank" class="experience-box-link">Click Me</a>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery">
+            <h1 class="section-title hidden-el">Creative Gallery</h1>
+            <div class="gallery-grid">
+                <div class="gallery-item hidden-el" onclick="openImage(1)" style="background-image: url('css/images/promotional-esports-poster.jpg');">
+                    <div class="overlay"><span>Esports Poster</span></div>
                 </div>
-                <div class="experience-box">
-                    <h1>NLP-Based-News-Recommendation-System</h1>
-                    <p>A simple java based News Article Recommendation System that collects news articles from multiple sources, using Natural Language Processing (NLP) and Machine Learning (ML) techniques. The system recommends new articles to the user based on their past preferences</p>
-                    <a href="https://github.com/ethanchchristoff/NLP-Based-News-Recommendation-System" target="_blank" class="experience-box-link">Click Me</a>
+                <div class="gallery-item hidden-el" onclick="openImage(2)" style="background-image: url('css/images/teaser-poster-tes.png');">
+                    <div class="overlay"><span>Teaser Design</span></div>
                 </div>
-                <div class="experience-box">
-                    <h1>Fall Detection Project</h1>
-                    <p>A fall detection application that uses IOT devices to detect if a person is in the process of falling or not. The project was a collaborative effort amongst four members, I created the joint based fall detection model that detects if a person in about to fall (or in the process of it) based on their joints</p>
-                    <a href="https://github.com/ethanchristoff/CM2603-Data_Science_Project-G20" target="_blank" class="experience-box-link">Click Me</a>
-                </div>
-            </div>
-            <h1 class="centered-header" id="gallery">Gallery</h1>
-            <div class="experience-container">
-                <div class="experience-box-img-1" onclick="openImage(1)">
-                </div>
-                <div class="experience-box-img-2" onclick="openImage(2)">
-                </div>
-                <div class="experience-box-img-3" onclick="openImage(3)">
+                <div class="gallery-item hidden-el" onclick="openImage(3)" style="background-image: url('css/images/t_shirt-design.png');">
+                    <div class="overlay"><span>Merch Design</span></div>
                 </div>
             </div>
-            <h1 class="centered-header" id="contact-me">Contact Me</h1>
-            <section class="mail-me-form-container">
-                <form class="mail-me-form" onsubmit="return email_submit()">
-                    <fieldset>
-                        <input type="text" name="name" id="name" placeholder="name">
-                        <input type="email" name="Email" id="Email" placeholder="Email">
-                        <input type="text" name="Message" id="Message" placeholder="Message" class="message">
-                        <input type="submit" class="home-main-btn">
-                        <input type="reset"><br>
-                    </fieldset>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact-me">
+            <h1 class="section-title hidden-el">Get In Touch</h1>
+            <div class="contact-container glass-card hidden-el">
+                <form class="contact-form" onsubmit="return email_submit()">
+                    <div class="input-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="Email" required>
+                        <label for="Email">Your Email</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="Message" required></textarea>
+                        <label for="Message">Message</label>
+                    </div>
+                    <button type="submit" class="glow-btn primary full-width">Send Message</button>
                 </form>
-            </section>
-            <section id="contact-me">
-                <footer class="footer"> 
-                    <div class="col-2">
-                        <h3>&copy; Copyright</h3> 
-                        <p>All rights reserved to Ethan Christoff Perera. This site may not be altered, however it's contents may be
-                            <br>copied and reproduced</p>          
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/ethan-perera-193809255/" target="_blank"><i class="fa fa-linkedin"></i></a>
-                            <a href="https://github.com/ethanchchristoff" target="_blank"><i class="fa fa-github"></i></a>
-                            <a href="https://x.com/ethan_christoff" target="_blank"><i class="fa fa-twitter"></i></a>
-                        </div>
-                </footer>
-            </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ethan-perera-193809255/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ethanchchristoff" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/ethan_christoff" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Ethan Christoff Perera. All rights reserved.</p>
         </div>
-        <script src="js/portfolio.js"></script>
-    </body>
+    </footer>
+
+    <script src="js/portfolio.js"></script>
+</body>
 </html>
